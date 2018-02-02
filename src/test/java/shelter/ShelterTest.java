@@ -44,4 +44,14 @@ public class ShelterTest {
 		assertThat(check, is(nullValue()));
 	}
 
+	@Test
+	public void shouldfeedAllPets() {
+		PetShelter underTest = new PetShelter();
+		VirtualPet newPet = new VirtualPet("", "", 0, 0, 0);
+		VirtualPet newPet2 = new VirtualPet("", "", 0, 0, 0);
+		underTest.feedAll();
+		assertThat(newPet.getHunger(), is(25));
+		assertThat(newPet2.getHunger(), is(25));
+	}
+
 }

@@ -28,6 +28,14 @@ public class PetShelter {
 
 	}
 
+	public void feedAll() {
+		for(VirtualPet shelter: shelter) {
+			shelter.feed();
+			
+		}
+		
+	}
+
 	// feedAPet
 	// feeds one pet
 	//
