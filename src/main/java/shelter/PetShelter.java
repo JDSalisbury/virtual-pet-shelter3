@@ -51,5 +51,4 @@ public class PetShelter {
 	public void playWithAPet(String name) {
 		shelter.get(name).play();
 	}
-
 }

@@ -26,7 +26,6 @@ public class ShelterTest {
 	public void shouldAddNewPetToShelter() {
 		addingPet();
 		assertThat(underTest.petList(), contains(newPet));
-
 	}
 
 	@Test

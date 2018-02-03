@@ -60,7 +60,6 @@ public class VirtualPet {
 		hunger += 5;
 		thirst += 5;
 		boredom += 5;
-
 	}
 
 	@Override
