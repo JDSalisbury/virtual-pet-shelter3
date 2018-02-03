@@ -1,6 +1,5 @@
 package shelter;
 
-import java.util.Collection;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
@@ -11,93 +10,73 @@ import org.junit.Test;
 
 public class ShelterTest {
 
-	private VirtualPet newPet;
+	private PetShelter underTest = new PetShelter();
+	private VirtualPet newPet = new VirtualPet("Bill", "", 20, 20, 20);
+	private VirtualPet newPet2 = new VirtualPet("Frank", "", 20, 20, 20);
+
+	private void addingPet() {
+		underTest.admitPet(newPet);
+	}
+
+	private void addingPetTwo() {
+		underTest.admitPet(newPet2);
+	}
 
 	@Test
 	public void shouldAddNewPetToShelter() {
-		PetShelter underTest = new PetShelter();
-		VirtualPet newPet = new VirtualPet("Bob", "", 0, 0, 0);
-		underTest.admitPet(newPet);
-		Collection<VirtualPet> check = underTest.petList();
-		assertThat(check, contains(newPet));
+		addingPet();
+		assertThat(underTest.petList(), contains(newPet));
 
 	}
 
 	@Test
 	public void shouldAddNewTwoPetToShelter() {
-		PetShelter underTest = new PetShelter();
-		VirtualPet newPet = new VirtualPet("Bob", "", 0, 0, 0);
-		VirtualPet newPet2 = new VirtualPet("Frank", "", 0, 0, 0);
-		underTest.admitPet(newPet);
-		underTest.admitPet(newPet2);
-		Collection<VirtualPet> check = underTest.petList();
-		assertThat(check, contains(newPet, newPet2));
+		addingPet();
+		addingPetTwo();
+		assertThat(underTest.petList(), contains(newPet, newPet2));
 	}
 
 	@Test
 	public void shouldRemoveNewPetFromShelter() {
-		PetShelter underTest = new PetShelter();
-		VirtualPet newPet = new VirtualPet("Bob", "", 0, 0, 0);
 		underTest.adoptPet(newPet.getName());
-		underTest.findAnimal("Bob");
-		VirtualPet check = underTest.findAnimal("Bob");
-		assertThat(check, is(nullValue()));
+		underTest.findAnimal("Bill");
+		assertThat(underTest.findAnimal("Bill"), is(nullValue()));
 	}
 
 	@Test
 	public void shouldFeedAllPets() {
-		PetShelter underTest = new PetShelter();
-		VirtualPet newPet = new VirtualPet("Bob", "", 20, 20, 20);
-		VirtualPet newPet2 = new VirtualPet("Frank", "", 20, 20, 20);
-		underTest.admitPet(newPet);
-		underTest.admitPet(newPet2);
+		addingPet();
+		addingPetTwo();
 		underTest.feedAll();
-		int check = newPet.getHunger();
-		int check2 = newPet2.getHunger();
-		assertThat(check, is(25));
-		assertThat(check2, is(25));
+		assertThat(newPet.getHunger(), is(25));
+		assertThat(newPet2.getHunger(), is(25));
 	}
 
 	@Test
 	public void shouldWaterAllPets() {
-		PetShelter underTest = new PetShelter();
-		VirtualPet newPet = new VirtualPet("Bob", "", 20, 20, 20);
-		VirtualPet newPet2 = new VirtualPet("Frank", "", 20, 20, 20);
-		underTest.admitPet(newPet);
-		underTest.admitPet(newPet2);
+		addingPet();
+		addingPetTwo();
 		underTest.waterAll();
-		int check = newPet.getThirst();
-		int check2 = newPet2.getThirst();
-		assertThat(check, is(25));
-		assertThat(check2, is(25));
+		assertThat(newPet.getThirst(), is(25));
+		assertThat(newPet2.getThirst(), is(25));
 	}
 
 	@Test
 	public void shouldFunAllPets() {
-		PetShelter underTest = new PetShelter();
-		VirtualPet newPet = new VirtualPet("Bob", "", 20, 20, 20);
-		VirtualPet newPet2 = new VirtualPet("Frank", "", 20, 20, 20);
-		underTest.admitPet(newPet);
-		underTest.admitPet(newPet2);
+		addingPet();
+		addingPetTwo();
 		underTest.funAll();
-		int check = newPet.getBoredom();
-		int check2 = newPet2.getBoredom();
-		assertThat(check, is(25));
-		assertThat(check2, is(25));
+		assertThat(newPet.getBoredom(), is(25));
+		assertThat(newPet2.getBoredom(), is(25));
 	}
 
 	@Test
 	public void shouldTickAllPets() {
-		PetShelter underTest = new PetShelter();
-		VirtualPet newPet = new VirtualPet("Bob", "", 20, 20, 20);
-		VirtualPet newPet2 = new VirtualPet("Frank", "", 20, 20, 20);
-		underTest.admitPet(newPet);
-		underTest.admitPet(newPet2);
+		addingPet();
+		addingPetTwo();
 		underTest.tickAll();
-		int check = newPet.getBoredom();
-		int check2 = newPet2.getThirst();
-		assertThat(check, is(25));
-		assertThat(check2, is(25));
+		assertThat(newPet.getBoredom(), is(25));
+		assertThat(newPet2.getThirst(), is(25));
 	}
 
 }

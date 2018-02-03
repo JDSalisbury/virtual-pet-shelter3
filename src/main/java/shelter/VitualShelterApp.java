@@ -9,15 +9,7 @@ public class VitualShelterApp {
 		Scanner input = new Scanner(System.in);
 		PetShelter shelterPets = new PetShelter();
 
-		VirtualPet merry = new VirtualPet("Merry", "really the only capable one");
-		VirtualPet pippin = new VirtualPet("Pippin", "always ready for second breakfast");
-		VirtualPet sam = new VirtualPet("Sam", "very protective of Frodo, but like in a weird way");
-		VirtualPet frodo = new VirtualPet("Frodo", "kinda highstrung");
-
-		shelterPets.admitPet(merry);
-		shelterPets.admitPet(pippin);
-		shelterPets.admitPet(sam);
-		shelterPets.admitPet(frodo);
+		addVirtualPets(shelterPets);
 
 		String move;
 		int turn = 0;
@@ -47,6 +39,18 @@ public class VitualShelterApp {
 
 		} while (!(move.equals("6")));
 		exitSequence();
+	}
+
+	private static void addVirtualPets(PetShelter shelterPets) {
+		VirtualPet merry = new VirtualPet("Merry", "really the only capable one");
+		VirtualPet pippin = new VirtualPet("Pippin", "always ready for second breakfast");
+		VirtualPet sam = new VirtualPet("Sam", "very protective of Frodo, but like in a weird way");
+		VirtualPet frodo = new VirtualPet("Frodo", "kinda highstrung");
+
+		shelterPets.admitPet(merry);
+		shelterPets.admitPet(pippin);
+		shelterPets.admitPet(sam);
+		shelterPets.admitPet(frodo);
 	}
 
 	public static void ifOptionIsFive(Scanner input, PetShelter shelterPets, String move) {
