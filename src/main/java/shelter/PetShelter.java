@@ -14,7 +14,6 @@ public class PetShelter {
 	}
 
 	public Collection<VirtualPet> petList() {
-
 		return shelter.values();
 	}
 
@@ -29,18 +28,24 @@ public class PetShelter {
 	}
 
 	public void feedAll() {
-		for(VirtualPet shelter: shelter) {
-			shelter.feed();
-			
+		for (VirtualPet pet : petList()) {
+			pet.feed();
 		}
-		
+
 	}
 
-	// feedAPet
-	// feeds one pet
-	//
-	// feedsallPets
-	// go through map
-	// feedAPet
+	public void waterAll() {
+		for (VirtualPet pet : petList()) {
+			pet.water();
+		}
+
+	}
+
+	public void funAll() {
+		for (VirtualPet pet : petList()) {
+			pet.play();
+		}
+
+	}
 
 }
