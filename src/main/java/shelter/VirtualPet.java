@@ -17,16 +17,6 @@ public class VirtualPet {
 		this.description = description;
 	}
 
-	public VirtualPet(int hunger, int thirst, int boredom) {
-		this.hunger = hunger;
-		this.thirst = thirst;
-		this.boredom = boredom;
-	}
-
-	public VirtualPet() {
-		this(20, 20, 20);
-	}
-
 	public VirtualPet(String name, String description) {
 		this.name = name;
 		this.description = description;
@@ -71,9 +61,9 @@ public class VirtualPet {
 	}
 
 	public void tick() {
-		hunger -= 5;
-		thirst -= 5;
-		boredom -= 5;
+		hunger += 5;
+		thirst += 5;
+		boredom += 5;
 
 	}
 
