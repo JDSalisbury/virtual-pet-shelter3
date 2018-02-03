@@ -7,7 +7,9 @@ public class VirtualPet {
 	private int boredom;
 	private String description;
 	private String name;
-	private int eat;
+	private int eat = 5;
+	private int drink = 5;
+	private int fun = 5;
 
 	public VirtualPet(String name, String description, int hunger, int thirst, int boredom) {
 		this.hunger = hunger;
@@ -43,21 +45,15 @@ public class VirtualPet {
 	}
 
 	public void feed() {
-		eat = 5;
 		hunger += eat;
-
 	}
 
 	public void water() {
-		int drink = 5;
 		thirst += drink;
-
 	}
 
 	public void play() {
-		int fun = 5;
 		boredom += fun;
-
 	}
 
 	public void tick() {

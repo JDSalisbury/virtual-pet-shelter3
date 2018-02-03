@@ -21,13 +21,9 @@ public class VitualShelterApp {
 
 			move = input.nextLine();
 
-			if (move.equals("1")) {
-				shelterPets.feedAll();
-			}
+			ifOptionIsOne(shelterPets, move);
 
-			if (move.equals("2")) {
-				shelterPets.waterAll();
-			}
+			ifOptionIsTwo(shelterPets, move);
 
 			ifOptionIsThree(input, shelterPets, move);
 
@@ -53,6 +49,40 @@ public class VitualShelterApp {
 		shelterPets.admitPet(frodo);
 	}
 
+	private static void ifOptionIsOne(PetShelter shelterPets, String move) {
+		if (move.equals("1")) {
+			shelterPets.feedAll();
+		}
+	}
+
+	private static void ifOptionIsTwo(PetShelter shelterPets, String move) {
+		if (move.equals("2")) {
+			shelterPets.waterAll();
+		}
+	}
+
+	public static void ifOptionIsThree(Scanner input, PetShelter shelterPets, String move) {
+		if (move.equals("3")) {
+			System.out.println("What pet would you like to play with?");
+			for (VirtualPet entry : shelterPets.petList()) {
+				System.out.println("The pet's name is " + entry.getName() + " and it is " + entry.getDescription());
+			}
+			String choice = input.nextLine();
+			shelterPets.playWithAPet(choice);
+		}
+	}
+
+	public static void ifOptionIsFour(Scanner input, PetShelter shelterPets, String move) {
+		if (move.equals("4")) {
+			System.out.println("Who would you like to adopt?");
+			for (VirtualPet entry : shelterPets.petList()) {
+				System.out.println("The pet's name is " + entry.getName() + " and it is " + entry.getDescription());
+			}
+			String choice = input.nextLine();
+			shelterPets.adoptPet(choice);
+		}
+	}
+
 	public static void ifOptionIsFive(Scanner input, PetShelter shelterPets, String move) {
 		if (move.equals("5")) {
 			System.out.println("Who whould you like to give us?");
@@ -62,28 +92,6 @@ public class VitualShelterApp {
 			String newPetDescription = input.nextLine();
 			VirtualPet newPet = new VirtualPet(newPetName, newPetDescription);
 			shelterPets.admitPet(newPet);
-		}
-	}
-
-	public static void ifOptionIsFour(Scanner input, PetShelter shelterPets, String move) {
-		if (move.equals("4")) {
-			System.out.println("Who would you like to adopt?");
-			for (VirtualPet entry : shelterPets.petList()) {
-				System.out.println("The pet's name is " + entry.getName() + " and he is " + entry.getDescription());
-			}
-			String choice = input.nextLine();
-			shelterPets.adoptPet(choice);
-		}
-	}
-
-	public static void ifOptionIsThree(Scanner input, PetShelter shelterPets, String move) {
-		if (move.equals("3")) {
-			System.out.println("What pet would you like to play with?");
-			for (VirtualPet entry : shelterPets.petList()) {
-				System.out.println("The pet's name is " + entry.getName() + " and he is " + entry.getDescription());
-			}
-			String choice = input.nextLine();
-			shelterPets.playWithAPet(choice);
 		}
 	}
 
