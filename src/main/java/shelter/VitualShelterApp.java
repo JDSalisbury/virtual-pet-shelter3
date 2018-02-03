@@ -1,36 +1,47 @@
 package shelter;
 
+import java.util.Map.Entry;
+
 public class VitualShelterApp {
 
 	public static void main(String[] args) {
-		
-		
-		PetShelter shelter = new PetShelter();
-		
-		VirtualPet merry = new VirtualPet("Merry", " Perceptive and Intelligent");
-		VirtualPet pippin = new VirtualPet("Pippin", "Always Ready for Second Breakfast");
-		VirtualPet sam = new VirtualPet("Sam", "Very protective of Frodo");
-		VirtualPet frodo = new VirtualPet("Frodo", "Kind of highstrung");
-		
-		shelter.admitPet(merry);
-		shelter.admitPet(pippin);
-		shelter.admitPet(sam);
-		shelter.admitPet(frodo);
-		
-		for(VirtualPet entry: shelter.petList()) {
-			  System.out.println("The pet's name is " + entry.getName());
-			  System.out.println("and he is " + entry.getDescription());
-			}
-		
-		System.out.println("Merry is feeling kinda hungry: "+merry.getHunger());
-		System.out.println("So is Pippin: " + pippin.getHunger());
-		
-		System.out.println("Lets Feed Them!");
-		shelter.feedAll();
-		
-		System.out.println("Merry is feeling kinda hungry: "+merry.getHunger());
-		System.out.println("So is Pippin: " + pippin.getHunger());
-		
-	}
 
+		PetShelter shelterPets = new PetShelter();
+
+		VirtualPet merry = new VirtualPet("Merry", "really the only capable one");
+		VirtualPet pippin = new VirtualPet("Pippin", "always ready for second breakfast");
+		VirtualPet sam = new VirtualPet("Sam", "very protective of Frodo, but like in a weird way");
+		VirtualPet frodo = new VirtualPet("Frodo", "kinda highstrung");
+
+		shelterPets.admitPet(merry);
+		shelterPets.admitPet(pippin);
+		shelterPets.admitPet(sam);
+		shelterPets.admitPet(frodo);
+
+		for (VirtualPet entry : shelterPets.petList()) {
+			System.out.println("The pet's name is " + entry.getName() + " and he is " + entry.getDescription());
+		}
+
+		System.out.println("Merry is feeling kinda hungry: " + merry.getHunger());
+		System.out.println("So is Pippin: " + pippin.getHunger());
+
+		System.out.println("Lets Feed Them!");
+		shelterPets.feedAll();
+
+		System.out.println("Merry is feeling kinda hungry: " + merry.getHunger());
+		System.out.println("So is Pippin: " + pippin.getHunger());
+
+		
+		
+		
+		System.out.println("Name\t\t|Hunger\t|Thirst\t|Boredom");
+		
+			for(Entry<String, VirtualPet> entry: shelterPets.shelter.entrySet()) {
+				System.out.println(entry.getValue());
+		}
+		
+	
+		
+	
+}
 }

@@ -6,11 +6,10 @@ import java.util.Map;
 
 public class PetShelter {
 
-	private Map<String, VirtualPet> shelter = new HashMap<>();
+	Map<String, VirtualPet> shelter = new HashMap<>();
 
 	public void admitPet(VirtualPet newPet) {
 		shelter.put(newPet.getName(), newPet);
-
 	}
 
 	public Collection<VirtualPet> petList() {
@@ -19,33 +18,36 @@ public class PetShelter {
 
 	public void adoptPet(String name) {
 		shelter.remove(name);
-
 	}
 
 	public VirtualPet findAnimal(String name) {
 		return shelter.get(name);
-
 	}
 
 	public void feedAll() {
 		for (VirtualPet pet : petList()) {
 			pet.feed();
 		}
-
 	}
 
 	public void waterAll() {
 		for (VirtualPet pet : petList()) {
 			pet.water();
 		}
-
 	}
 
 	public void funAll() {
 		for (VirtualPet pet : petList()) {
 			pet.play();
 		}
-
 	}
 
+	public void tickAll() {
+		for (VirtualPet pet : petList()) {
+			pet.tick();
+		}
+	}
+
+	
+	
 }

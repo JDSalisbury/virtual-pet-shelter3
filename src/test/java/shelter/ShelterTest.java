@@ -81,4 +81,16 @@ public class ShelterTest {
 		assertThat(check2, is(25));
 	}
 
+	@Test
+	public void shouldTickAllPets() {
+		PetShelter underTest = new PetShelter();
+		VirtualPet newPet = new VirtualPet("", "", 20, 20, 20);
+		VirtualPet newPet2 = new VirtualPet("", "", 20, 20, 20);
+		underTest.tickAll();
+		int check = newPet.getBoredom();
+		int check2 = newPet2.getThirst();
+		assertThat(check, is(25));
+		assertThat(check2, is(25));
+	}
+
 }

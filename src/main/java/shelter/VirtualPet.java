@@ -77,4 +77,9 @@ public class VirtualPet {
 
 	}
 
+	@Override
+	public String toString() {
+		return "" + name + "\t\t|" + hunger + "\t|" + thirst + "\t|" + boredom + "\t-" + description;
+	}
+
 }
