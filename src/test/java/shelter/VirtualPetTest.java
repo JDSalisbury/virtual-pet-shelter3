@@ -1,10 +1,6 @@
 package shelter;
 
-import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-
-import java.util.Collection;
 
 import org.junit.Test;
 
